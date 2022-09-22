@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --cor-primaria:#5B3331;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.flex{
+  display: flex;
+  justify-content: space-around;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+
+p a{
+  color: black;
+  text-decoration: none;
+
+}
+
+p a:hover{
+  color: black;
+  text-decoration: underline 1px solid black;
+}
+
+.margin0{
+  margin: 0px;
+  width: 100%;
+}
+
+.align-center{
+  align-items: center;
+}
+.mat-card:not([class*=mat-elevation-z]){
+  box-shadow:none;
+}
+
+h3{
+  font-size: 30px;
+}
+h2{
+  font-size: 50px;
+  margin-top: 25px;
+}
+button{
+  background: #AED9E0;
+  border-radius: 20px;
+}

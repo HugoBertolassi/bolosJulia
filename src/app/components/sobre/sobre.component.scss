@@ -1,0 +1,27 @@
+// @import url(../app.component.scss);
+
+body{
+    max-width:1440px ;
+    margin: auto;
+}
+main{
+    width: 90%;
+    margin: auto;
+}
+
+.center{
+    align-items:center;
+}
+.m-left{
+    width: 100%;
+    margin-left: 100px;
+}
+.m-left20{
+    width: 100%;
+    margin-left: 20px;
+}
+
+.m-right{
+    margin-right: 100px;
+}
+

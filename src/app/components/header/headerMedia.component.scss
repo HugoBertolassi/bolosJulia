@@ -1,0 +1,26 @@
+
+@media (max-width:1075px) {
+    .imgPrincipal{
+        display: none;
+    }
+}
+
+@media (max-width:415px) {
+   .mat-card{
+    flex-direction: column;
+   }
+
+    nav{
+    display: flex;
+    flex-direction: column;
+    //margin-top:25px;
+   }
+   nav p{
+    margin-top: 70px;
+   }
+   .navi{
+    
+    margin: 50px 20px;
+    }
+   
+}

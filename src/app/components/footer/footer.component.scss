@@ -1,0 +1,25 @@
+// @import url(../app.component.scss);
+@import url(footerMedia.component.scss);
+
+:root{
+    --cor-primaria:#5B3331;
+}
+
+.footer{
+
+   // background-color: var(--cor-primaria)
+    background-color:#5B3331;
+    align-items:center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+p{
+    color: white;
+}
+#whats{
+    //background-image: url("../../assets/img/whats1.svg");
+}
+ a img{
+    margin: 20px;
+ }

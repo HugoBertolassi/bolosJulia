@@ -1,0 +1,81 @@
+// @import url(../app.component.scss);
+
+body{
+    margin: auto;
+    max-width: 1440px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+}
+.btn_editar{
+    background: #AED9E0;
+    border-radius: 25px;
+    width: 125px;
+    height: 42px;
+    border: none;
+    color: black;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.btn_excluir{
+    background: #F87700;
+    border-radius: 25px;
+    width: 125px;
+    height: 42px;
+    margin-left: 20px;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+
+.Bolos-valor{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 25px;
+    color: #F87700;
+}
+
+.i-cadastro{
+    border: 1px solid #660027;
+    border-radius: 10px;
+    width: 300px;
+    height: 42px;
+
+}
+
+.btn_cadastro{
+    width: 128px;
+    height: 42px;
+    background: #660027;
+    border: 2px solid #660027;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.d-cadastro{
+    margin: 50px 0px;
+    align-items: center;
+    justify-content: left;
+}
+
+.inpCadastro{
+    display: flex;
+    flex-direction: column;
+    margin-left:50px;
+
+}
+
+.l-cadastrar{
+    color: #7B7676;
+    font-weight: 400;
+font-size: 20px;
+line-height: 25px;
+padding-left: 5px;
+}

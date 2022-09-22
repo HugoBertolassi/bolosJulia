@@ -1,0 +1,54 @@
+<app-header  [nomeFilho]="tituloHeader"></app-header>
+<main class="flex-col">
+    <h2>Bolos</h2>
+    <!-- <div>
+        <mat-card class="flex">
+            <div>
+                <mat-card-title>Bolo Cenoura</mat-card-title>
+                <mat-card-content>
+                    <p class="Bolos-valor">R$15,00</p>
+                </mat-card-content>
+            </div>
+            <mat-card-actions>
+                <button class="btn_editar" mat-button>Editar</button>
+                <button class="btn_excluir" mat-button>Excluir</button>
+            </mat-card-actions>
+        </mat-card>
+    </div> -->
+    <div *ngFor="let bolo of bolos">
+      <mat-card class="flex">
+          <div>
+              <mat-card-title>{{bolo.nome}}</mat-card-title>
+              <mat-card-content>
+                  <p class="Bolos-valor">{{bolo.valor | currency}}</p>
+              </mat-card-content>
+          </div>
+          <mat-card-actions>
+              <button class="btn_editar" mat-button (click)="editarBolo(bolo.id)">Editar</button>
+              <button class="btn_excluir" mat-button (click)="excluirBolo(bolo.id)">Excluir</button>
+          </mat-card-actions>
+      </mat-card>
+  </div>
+
+  <!--<form [formGroup]="formBolos" (submit)="salvarBolo()"> -->
+  <form [formGroup]="formBolos" >
+    <div class="flex d-cadastro">
+
+        <mat-form-field class="inpCadastro" appearance="fill">
+          <mat-label class="l-cadastrar">Bolo</mat-label>
+          <input type="text" matInput placeholder="EX.BOLO Laranja" formControlName="inputBolo" name="inputBolo" required>
+          <mat-error>Este campo [e obrigatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="inpCadastro" appearance="fill">
+          <mat-label class="l-cadastrar">Valor</mat-label>
+          <input type="text" matInput placeholder="EX.BOLO Laranja" formControlName="inputValor" name="inputValor" required>
+          <mat-error>Este campo [e obrigatorio</mat-error>
+        </mat-form-field>
+
+        <button type="submit" class="btn_cadastro" mat-button (click)="salvarBolo()">Cadastrar</button>
+        <button class="btn_cadastro" mat-button (click)="atualizarEdicao()">Editar</button>
+    </div>
+  </form>
+</main>
+<app-footer></app-footer>
