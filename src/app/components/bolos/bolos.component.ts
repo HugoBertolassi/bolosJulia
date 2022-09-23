@@ -126,8 +126,11 @@ export class BolosComponent implements OnInit {
 
   openDialog(id:number,enterAnimationDuration: string, exitAnimationDuration: string): void {
 
-    this.boloService.lerBolosById(id).subscribe({
+
+    this.boloService.lerBolosById(id).subscribe({ //pegar bolo
       next:(bolo:BoloInterface)=>{
+
+        //abir o dialog
         const dialogRef = this.dialog.open(DialogBoloEditarComponent, {
           width: '250px',
           enterAnimationDuration,
@@ -136,9 +139,17 @@ export class BolosComponent implements OnInit {
           //data: {name: this.name, animal: this.animal},
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-          //this.animal = result;
+        //receber fechamento do dialog
+        dialogRef.afterClosed().subscribe(bolo => {
+          this.boloService.updateBolo(bolo).subscribe({
+            next:()=>{
+               //alert("bolo salvo com sucesso")
+               this.ngOnInit()
+            },
+            error:()=>{
+               alert("Erro ao salvar Bolo")
+            }
+          })
         });
 
       },

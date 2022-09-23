@@ -26,34 +26,35 @@ export class DialogBoloEditarComponent implements OnInit {
       bolo:['',[Validators.required]],
       valor:['',[Validators.required]]
     })
-   // Number(this.formBolos.controls['inputValor'].value
+
     this.form.controls['id'].setValue(this.data.id);
     this.form.controls['bolo'].setValue(this.data.nome);
     this.form.controls['valor'].setValue(this.data.valor);
   }
 
   updateBolo(){
-      let bolo:BoloInterface={
+    let bolo:BoloInterface={
       id:this.form.controls['id'].value,
       nome:this.form.controls['bolo'].value,
       valor:Number(this.form.controls['valor'].value)
     }
+    this.data.id=this.form.controls['id'].value;
+    this.data.nome=this.form.controls['bolo'].value;
+    this.data.valor=Number(this.form.controls['valor'].value);
 
-    this.boloService.updateBolo(bolo).subscribe({
-      next:()=>{
-         alert("bolo salvo com sucesso")
-
-      },
-      error:()=>{
-         alert("Erro ao salvar Bolo")
-      }
-    })
-
-
-
-
-    this.dialogRef.close();
+    this.dialogRef.close(this.data);
     this.form.reset()
+    //salvament do bolo direto pelo view
+    // this.boloService.updateBolo(bolo).subscribe({
+    //   next:()=>{
+    //      alert("bolo salvo com sucesso")
+
+    //   },
+    //   error:()=>{
+    //      alert("Erro ao salvar Bolo")
+    //   }
+    //})
+
   }
   onNoClick(): void {
     this.dialogRef.close();
