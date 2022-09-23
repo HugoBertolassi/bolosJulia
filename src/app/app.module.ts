@@ -1,4 +1,4 @@
-import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import {HttpClientModule} from '@angular/common/http';
 
 //layout moeda
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID} from '@angular/core';
 import localePt from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localePt,'pt')
@@ -27,6 +28,10 @@ registerLocaleData(localePt,'pt')
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+
+//dialog
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogBoloEditarComponent } from './view/dialog-bolo-editar/dialog-bolo-editar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     FooterComponent,
     HomeComponent,
     SobreComponent,
-    BolosComponent
+    BolosComponent,
+    DialogBoloEditarComponent
 
   ],
   imports: [
@@ -48,7 +54,8 @@ import {MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
 
   ],
   providers: [

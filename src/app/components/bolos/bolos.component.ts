@@ -1,8 +1,20 @@
 import { BoloInterface } from './../../models/bolos.model';
 import { Router } from '@angular/router';
 import { BoloServiceService } from './../../service/bolo-service.service';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Inject } from '@angular/core';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog,MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
+import { DialogBoloEditarComponent } from 'src/app/view/dialog-bolo-editar/dialog-bolo-editar.component';
+
+
+//dialog
+export interface DialogData {
+  id:number,
+  bolo:string,
+  valor:number
+}
+
+
 
 @Component({
   selector: 'app-bolos',
@@ -15,10 +27,10 @@ export class BolosComponent implements OnInit {
   id:number=0;
   public formBolos!:FormGroup;
 
-
   constructor(
     private formBuilder:FormBuilder,
     private boloService:BoloServiceService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -81,7 +93,7 @@ export class BolosComponent implements OnInit {
         this.formBolos.controls['inputValor'].setValue(bolo.valor);
         this.formBolos.controls['inputBolo'].setValue(bolo.nome);
         this.id=bolo.id;
-        console.log("editar "+this.id)
+        //console.log("editar "+this.id)
       },
       error:()=>{
         console.log("erro ao editar bolo");
@@ -90,7 +102,7 @@ export class BolosComponent implements OnInit {
   }
 
   atualizarEdicao(){
-    console.log("editar "+this.id)
+    //console.log("editar "+this.id)
     let id=this.id;
     let _valor=Number(this.formBolos.controls['inputValor'].value)
     let bolo:BoloInterface={
@@ -108,6 +120,33 @@ export class BolosComponent implements OnInit {
          alert("Erro ao salvar Bolo")
       }
     })
+  }
+
+  //////////////////////////// dialog
+
+  openDialog(id:number,enterAnimationDuration: string, exitAnimationDuration: string): void {
+
+    this.boloService.lerBolosById(id).subscribe({
+      next:(bolo:BoloInterface)=>{
+        const dialogRef = this.dialog.open(DialogBoloEditarComponent, {
+          width: '250px',
+          enterAnimationDuration,
+          exitAnimationDuration,
+          data:{id:bolo.id,nome:bolo.nome,valor:bolo.valor}
+          //data: {name: this.name, animal: this.animal},
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          //this.animal = result;
+        });
+
+      },
+      error:()=>{
+        console.log("erro ao editar bolo");
+      }
+    })
+
   }
 
 }

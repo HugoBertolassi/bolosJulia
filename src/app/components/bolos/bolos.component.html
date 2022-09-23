@@ -26,6 +26,9 @@
           <mat-card-actions>
               <button class="btn_editar" mat-button (click)="editarBolo(bolo.id)">Editar</button>
               <button class="btn_excluir" mat-button (click)="excluirBolo(bolo.id)">Excluir</button>
+
+              <button mat-button (click)="openDialog(bolo.id,'0ms', '0ms')">Open dialog</button>
+
           </mat-card-actions>
       </mat-card>
   </div>
@@ -48,7 +51,12 @@
 
         <button type="submit" class="btn_cadastro" mat-button (click)="salvarBolo()">Cadastrar</button>
         <button class="btn_cadastro" mat-button (click)="atualizarEdicao()">Editar</button>
+
     </div>
   </form>
+
+  <!-- Dialog -->
+  <button mat-button (click)="openDialog(1,'0ms', '0ms')">Open dialog</button>
+
 </main>
 <app-footer></app-footer>

@@ -1,14 +1,14 @@
 {
   "bolos": [
     {
-      "id": 24,
-      "nome": "",
-      "valor": 0
+      "id": 1,
+      "nome": "AAAA",
+      "valor": 10
     },
     {
       "id": 2,
-      "nome": "xA",
-      "valor": 15
+      "nome": "BOLO CENOURA",
+      "valor": 20
     }
   ]
 }

@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Hi </h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <p>What's your favorite animal?</p>
+    <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" name="id" value="{{data.id}}">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>BOLO</mat-label>
+      <input matInput formControlName="bolo" name="bolo" value="{{data.nome}}">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>valor</mat-label>
+      <input matInput formControlName="valor" name="valor" value="{{data.valor}}">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="updateBolo()">Atualizar</button>
+  <!-- <button mat-button [mat-dialog-close]="data.valor" cdkFocusInitial>Ok</button> -->
+</div>
+
